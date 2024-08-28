@@ -2,6 +2,7 @@ package com.example.kalkulator4
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         try {
             val postfix = infixToPostfix(currentInput)
             val result = evaluatePostfix(postfix)
+            Toast.makeText(this, result.toString(), Toast.LENGTH_SHORT).show()
             binding.HASIL.text = result.toString()
             resetInput(result.toString())
         } catch (e: Exception) {
